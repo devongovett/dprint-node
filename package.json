@@ -1,8 +1,7 @@
 {
   "name": "dprint-node",
   "version": "1.0.0",
-  "description": "A node API for the dprint code formatter",
-  "keywords": [""]
+  "description": "A node API for the dprint TypeScript and JavaScript code formatter",
   "repository": "https://github.com/devongovett/dprint-node",
   "author": "Devon Govett <devongovett@gmail.com>",
   "license": "MIT",
