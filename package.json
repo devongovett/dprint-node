@@ -8,6 +8,10 @@
   "napi": {
     "name": "dprint-node"
   },
+  "files": [
+    "*.node",
+    "index.js"
+  ],
   "scripts": {
     "build": "napi build --platform",
     "build-release": "napi build --platform --release"
