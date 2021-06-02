@@ -1,0 +1,21 @@
+{
+  "name": "dprint-node",
+  "version": "1.0.0",
+  "description": "A node API for the dprint code formatter",
+  "keywords": [""]
+  "repository": "https://github.com/devongovett/dprint-node",
+  "author": "Devon Govett <devongovett@gmail.com>",
+  "license": "MIT",
+  "napi": {
+    "name": "dprint-node"
+  },
+  "scripts": {
+    "build": "napi build --platform",
+    "build-release": "napi build --platform --release"
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "^1.0.4",
+    "prettier": "^2.3.0",
+    "tiny-benchy": "^1.0.2"
+  }
+}
