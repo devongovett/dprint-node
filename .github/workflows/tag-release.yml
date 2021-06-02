@@ -30,7 +30,7 @@ jobs:
           name: bindings-${{ matrix.os }}
           path: ./*.node
       - name: Smoke test
-        run: node -e "require('dprint-node')"
+        run: node -e "require('./')"
 
   build-linux-gnu-x64:
     name: linux-gnu-x64
@@ -60,7 +60,7 @@ jobs:
       - name: debug
         run: ls -l ./*.node
       - name: Smoke test
-        run: node -e 'require("dprint-node")'
+        run: node -e 'require("./")'
 
   build-linux-gnu-arm:
     strategy:
@@ -107,7 +107,7 @@ jobs:
         with:
           image: ghcr.io/devongovett/multiarch-node:node14-${{ matrix.arch }}-focal
           options: -v ${{github.workspace}}:/work
-          run: cd /work && node -e "require('dprint-node')"
+          run: cd /work && node -e "require('./')"
 
   build-linux-musl:
     strategy:
@@ -154,7 +154,7 @@ jobs:
         run: ls -l ./*.node
       - name: Smoke test
         if: ${{ matrix.target == 'x86_64-unknown-linux-musl' }}
-        run: node -e 'require("dprint-node")'
+        run: node -e 'require("./")'
 
   build-apple-silicon:
     name: aarch64-apple-darwin
