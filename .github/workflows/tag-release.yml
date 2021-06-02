@@ -170,7 +170,9 @@ jobs:
           target: aarch64-apple-darwin
       - uses: bahmutov/npm-install@v1.1.0
       - name: Build native packages
-        run: yarn build-release --target aarch64-apple-darwin
+        run: |
+          sudo rm -Rf /Library/Developer/CommandLineTools/SDKs/*
+          yarn build-release --target aarch64-apple-darwin
       - name: Strip debug symbols
         run: strip -x ./*.node
       - name: Upload artifacts
