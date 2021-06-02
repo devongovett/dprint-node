@@ -137,7 +137,7 @@ jobs:
       - name: Install cross compile toolchains
         if: ${{ matrix.target == 'aarch64-unknown-linux-musl' }}
         run: |
-          curl -O https://musl.cc/aarch64-linux-musl-cross.tgz
+          curl -O http://musl.cc/aarch64-linux-musl-cross.tgz
           tar xzf aarch64-linux-musl-cross.tgz
           cp -R aarch64-linux-musl-cross/* /usr
       - uses: bahmutov/npm-install@v1.1.0
@@ -170,7 +170,7 @@ jobs:
           target: aarch64-apple-darwin
       - uses: bahmutov/npm-install@v1.1.0
       - name: Build native packages
-        run: yarn build-release --target ${{ matrix.target }}
+        run: yarn build-release --target aarch64-apple-darwin
       - name: Strip debug symbols
         run: strip -x ./*.node
       - name: Upload artifacts
