@@ -201,7 +201,7 @@ jobs:
         with:
           path: artifacts
       - name: Move artifacts
-        run: for d in artifacts/*; do cp $d/*.node packages/$(basename $(dirname $d))/$(basename $d); done
+        run: mv artifacts/* .
       - name: Debug
         run: ls -l ./*.node
       - run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
