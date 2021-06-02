@@ -24,6 +24,6 @@ dprint.format(filePath, code, {
 
 ```
 $ node bench.js
-prettier 215.07 opts/sec (mean: 4.65ms, stddev: 7.656ms, 50 samples)
-dprint 4,655.99 opts/sec (mean: 0.215ms, stddev: 0.077ms, 50 samples)
+prettier 216.33 opts/sec (mean: 4.623ms, stddev: 6.7ms, 50 samples)
+dprint 6,694.02 opts/sec (mean: 0.149ms, stddev: 0.094ms, 50 samples)
 ```
