@@ -6,11 +6,18 @@ version = "0.1.0"
 [lib]
 crate-type = ["cdylib"]
 
+[profile.release]
+opt-level = 3
+lto = true
+
 [dependencies]
 napi = { version = "1", features = ["serde-json"] }
 napi-derive = "1"
 dprint-plugin-typescript = "0.46.0"
 dprint-core = "0.42.0"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+jemallocator = { version = "0.3.2", features = ["disable_initial_exec_tls"] }
 
 [build-dependencies]
 napi-build = { version = "1" }

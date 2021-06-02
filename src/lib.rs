@@ -4,6 +4,10 @@ extern crate napi_derive;
 extern crate dprint_plugin_typescript;
 extern crate dprint_core;
 
+#[cfg(target_os = "macos")]
+#[global_allocator]
+static GLOBAL: jemallocator::Jemalloc = jemallocator::Jemalloc;
+
 use std::collections::HashMap;
 use std::path::Path;
 use dprint_plugin_typescript::{format_text, configuration::{resolve_config, ConfigurationBuilder}};

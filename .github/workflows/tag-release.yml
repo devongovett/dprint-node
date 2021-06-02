@@ -171,7 +171,11 @@ jobs:
       - uses: bahmutov/npm-install@v1.1.0
       - name: Build native packages
         run: |
-          sudo rm -Rf /Library/Developer/CommandLineTools/SDKs/*
+          sudo rm -Rf /Library/Developer/CommandLineTools/SDKs/*;
+          export CC=$(xcrun -f clang);
+          export CXX=$(xcrun -f clang++);
+          SYSROOT=$(xcrun --sdk macosx --show-sdk-path);
+          export CFLAGS="-isysroot $SYSROOT -isystem $SYSROOT";
           yarn build-release --target aarch64-apple-darwin
       - name: Strip debug symbols
         run: strip -x ./*.node
