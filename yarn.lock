@@ -700,10 +700,10 @@ through@^2.3.6:
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
 
-tiny-benchy@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/tiny-benchy/-/tiny-benchy-1.0.2.tgz#ed13db50876b54ded3d4cdf7710a5c2856b234ae"
-  integrity sha512-IpawVd9wuRyVXyajQ/La9ugQXKJohIEA6ufdPZsNuqOH7U4//xq4ivc7YdyCBshYccrUJovwYhMKWhxwdFgDsA==
+tiny-benchy@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/tiny-benchy/-/tiny-benchy-2.1.0.tgz#f14c2597c54dd4c35ab582824ca4613a60d010d3"
+  integrity sha512-84QOWzFrcrswVVfpGp0Bg1uLLKC59EdgT58l57A8J8orCR2wGemCsqsxhpJ7JmbTx8py2915+B9kpcsPDmuTcQ==
 
 tmp@^0.0.33:
   version "0.0.33"
