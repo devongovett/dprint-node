@@ -116,10 +116,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "dprint-core"
+version = "0.46.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5493eb33410e8fc2bada30f26807245040d67daf0137fe7de41c2d7c9c580f42"
+dependencies = [
+ "bumpalo",
+ "fnv",
+ "serde",
+]
+
+[[package]]
 name = "dprint-node"
 version = "0.1.0"
 dependencies = [
- "dprint-core",
+ "dprint-core 0.46.1",
  "dprint-plugin-typescript",
  "jemallocator",
  "napi",
@@ -133,7 +144,7 @@ version = "0.46.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "920f97045333dc153ed59632fa7b0af2b78c7296f592b1a05d1b9412ee06b915"
 dependencies = [
- "dprint-core",
+ "dprint-core 0.42.0",
  "dprint-swc-ecma-ast-view",
  "fnv",
  "serde",
