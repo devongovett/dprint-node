@@ -13,7 +13,7 @@ lto = true
 [dependencies]
 napi = { version = "1", features = ["serde-json"] }
 napi-derive = "1"
-dprint-plugin-typescript = "0.46.0"
+dprint-plugin-typescript = "0.57.0"
 dprint-core = "0.42.0"
 
 [target.'cfg(target_os = "macos")'.dependencies]
