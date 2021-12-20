@@ -12,7 +12,7 @@ lto = true
 
 [dependencies]
 napi = { version = "2", features = ["serde-json"] }
-napi-derive = "1"
+napi-derive = "2"
 dprint-plugin-typescript = "0.57.0"
 dprint-core = "0.46.4"
 
