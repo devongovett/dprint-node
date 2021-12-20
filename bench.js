@@ -1,4 +1,4 @@
-const Benchmark = require("tiny-benchy");
+const {Benchmark} = require("tiny-benchy");
 const prettier = require('prettier');
 const dprint = require('./');
 
@@ -25,7 +25,7 @@ function Example() {
 }
 `;
 
-let suite = new Benchmark();
+let suite = new Benchmark({iterations: 50});
 
 suite.add('prettier', () => {
   prettier.format(input, {parser: 'babel'});

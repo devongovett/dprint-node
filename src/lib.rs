@@ -1,9 +1,3 @@
-extern crate napi;
-#[macro_use]
-extern crate napi_derive;
-extern crate dprint_plugin_typescript;
-extern crate dprint_core;
-
 #[cfg(target_os = "macos")]
 #[global_allocator]
 static GLOBAL: jemallocator::Jemalloc = jemallocator::Jemalloc;
@@ -11,20 +5,16 @@ static GLOBAL: jemallocator::Jemalloc = jemallocator::Jemalloc;
 use std::collections::HashMap;
 use std::path::Path;
 use dprint_plugin_typescript::{format_text, configuration::{resolve_config, ConfigurationBuilder}};
-use dprint_core::configuration::{ConfigKeyMap, ConfigKeyValue, resolve_global_config};
-use napi::{CallContext, JsObject, JsString, Result, Either, JsNumber, JsBoolean, JsUnknown, ValueType};
+use dprint_core::configuration::{ConfigKeyMap, ConfigKeyValue, resolve_global_config, ResolveGlobalConfigOptions};
+use napi::{JsObject, JsString, Result, JsNumber, JsBoolean, JsUnknown, ValueType};
+use napi_derive::napi;
 
-#[js_function(3)]
-fn format(ctx: CallContext) -> Result<JsString> {
-  let file_name = ctx.get::<JsString>(0)?.into_utf8()?;
-  let file_name = file_name.as_str()?;
-  let path = Path::new(file_name);
+#[napi]
+fn format(file_name: String, code: String, config: Option<JsObject>) -> Result<String> {
+  let path = Path::new(&file_name);
 
-  let code = ctx.get::<JsString>(1)?.into_utf8()?;
-  let code = code.as_str()?;
-
-  let config = match ctx.try_get::<JsObject>(2)? {
-    Either::A(obj) => {
+  let config = match config {
+    Some(obj) => {
       let mut c = ConfigKeyMap::new();
       c.insert("deno".into(), ConfigKeyValue::Bool(true));
 
@@ -56,7 +46,7 @@ fn format(ctx: CallContext) -> Result<JsString> {
 
         c.insert(k, v);
       }
-      let res = resolve_config(c, &resolve_global_config(HashMap::new()).config);
+      let res = resolve_config(c, &resolve_global_config(HashMap::new(), &ResolveGlobalConfigOptions::default()).config);
       if !res.diagnostics.is_empty() {
         let message = res.diagnostics.iter().map(|d| d.message.clone()).collect::<Vec<String>>().join("\n  ");
         return Err(napi::Error {
@@ -70,10 +60,7 @@ fn format(ctx: CallContext) -> Result<JsString> {
   };
 
   match format_text(&path, &code, &config) {
-    Ok(res) => {
-      let s = ctx.env.create_string_from_std(res)?;
-      Ok(s)
-    },
+    Ok(res) => Ok(res),
     Err(e) => {
       Err(napi::Error {
         reason: e.to_string(),
@@ -81,11 +68,4 @@ fn format(ctx: CallContext) -> Result<JsString> {
       })
     }
   }
-}
-
-#[module_exports]
-fn init(mut exports: JsObject) -> Result<()> {
-  exports.create_named_method("format", format)?;
-
-  Ok(())
 }
