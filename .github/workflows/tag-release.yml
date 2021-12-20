@@ -164,7 +164,7 @@ jobs:
       - name: Install Rust
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: nightly
+          toolchain: stable
           profile: minimal
           override: true
           target: aarch64-apple-darwin
@@ -176,6 +176,7 @@ jobs:
           export CXX=$(xcrun -f clang++);
           SYSROOT=$(xcrun --sdk macosx --show-sdk-path);
           export CFLAGS="-isysroot $SYSROOT -isystem $SYSROOT";
+          export JEMALLOC_SYS_WITH_LG_PAGE=14;
           yarn build-release --target aarch64-apple-darwin
       - name: Strip debug symbols
         run: strip -x ./*.node
