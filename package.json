@@ -13,8 +13,8 @@
     "index.js"
   ],
   "scripts": {
-    "build": "napi build --platform",
-    "build-release": "napi build --platform --release"
+    "build": "napi build --platform --dts /dev/null --js /dev/null",
+    "build-release": "napi build --platform --release --dts /dev/null --js /dev/null"
   },
   "dependencies": {
     "detect-libc": "^1.0.3"
