@@ -10,11 +10,12 @@
   },
   "files": [
     "*.node",
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ],
   "scripts": {
-    "build": "napi build --platform --dts /dev/null --js /dev/null",
-    "build-release": "napi build --platform --release --dts /dev/null --js /dev/null"
+    "build": "napi build --platform --dts false --js false",
+    "build-release": "napi build --platform --release --dts false --js false"
   },
   "dependencies": {
     "detect-libc": "^1.0.3"
