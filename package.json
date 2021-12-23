@@ -1,6 +1,6 @@
 {
   "name": "dprint-node",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A node API for the dprint TypeScript and JavaScript code formatter",
   "repository": "https://github.com/devongovett/dprint-node",
   "author": "Devon Govett <devongovett@gmail.com>",
@@ -11,7 +11,8 @@
   "files": [
     "*.node",
     "index.js",
-    "index.d.ts"
+    "index.d.ts",
+    "options.d.ts"
   ],
   "scripts": {
     "build": "napi build --platform --dts false --js false",
