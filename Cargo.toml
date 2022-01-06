@@ -15,7 +15,7 @@ lto = true
 napi = { version = "2", features = ["serde-json"] }
 napi-derive = "2"
 dprint-plugin-typescript = "0.57.0"
-dprint-core = "0.46.4"
+dprint-core = "0.49.0"
 
 [target.'cfg(target_os = "macos")'.dependencies]
 jemallocator = { version = "0.3.2", features = ["disable_initial_exec_tls"] }
