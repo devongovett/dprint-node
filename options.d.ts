@@ -11,6 +11,8 @@ export type SemiColons = "always" | "prefer" | "asi";
 export type SemiColons1 = string;
 export type QuoteStyle = "alwaysDouble" | "alwaysSingle" | "preferDouble" | "preferSingle";
 export type QuoteStyle1 = string;
+export type QuoteProps = "preserve" | "asNeeded";
+export type QuoteProps1 = string;
 export type NewLineKind = "auto" | "crlf" | "lf" | "system";
 export type NewLineKind1 = string;
 export type UseBraces = "maintain" | "whenNotSingleLine" | "always" | "preferNone";
@@ -45,6 +47,8 @@ export type TypeLiteralSeparatorKind = "semiColon" | "comma";
 export type TypeLiteralSeparatorKind1 = string;
 export type EnumDeclarationMemberSpacing = "newLine" | "blankLine" | "maintain";
 export type EnumDeclarationMemberSpacing1 = string;
+export type SpaceAround = boolean;
+export type SpaceAround1 = true | false;
 export type SpaceSurroundingProperties = boolean;
 export type SpaceSurroundingProperties1 = true | false;
 export type ObjectExpressionSpaceSurroundingProperties = boolean;
@@ -105,10 +109,12 @@ export type WhileStatementSpaceAfterWhileKeyword = boolean;
 export type WhileStatementSpaceAfterWhileKeyword1 = true | false;
 export type SortOrder = "maintain" | "caseSensitive" | "caseInsensitive";
 export type SortOrder1 = string;
+export type ForceSingleLine = boolean;
+export type ForceSingleLine1 = true | false;
 
-export interface Options {
+export interface HttpsPluginsDprintDevDprintDprintPluginTypescript0712SchemaJson {
   /**
-   * Whether the configuration is not allowed to be overriden or extended.
+   * Whether the configuration is not allowed to be overridden or extended.
    */
   locked?: boolean;
   /**
@@ -131,6 +137,10 @@ export interface Options {
    * How to use single or double quotes.
    */
   quoteStyle?: QuoteStyle & QuoteStyle1;
+  /**
+   * Change when properties in objects are quoted.
+   */
+  quoteProps?: QuoteProps & QuoteProps1;
   /**
    * The kind of newline to use.
    */
@@ -201,6 +211,22 @@ export interface Options {
    * How to space the members of an enum.
    */
   "enumDeclaration.memberSpacing"?: EnumDeclarationMemberSpacing & EnumDeclarationMemberSpacing1;
+  /**
+   * Whether to place spaces around enclosed expressions.
+   */
+  spaceAround?: SpaceAround & SpaceAround1;
+  "arguments.spaceAround"?: SpaceAround & SpaceAround1;
+  "arrayExpression.spaceAround"?: SpaceAround & SpaceAround1;
+  "arrayPattern.spaceAround"?: SpaceAround & SpaceAround1;
+  "doWhileStatement.spaceAround"?: SpaceAround & SpaceAround1;
+  "forInStatement.spaceAround"?: SpaceAround & SpaceAround1;
+  "forOfStatement.spaceAround"?: SpaceAround & SpaceAround1;
+  "forStatement.spaceAround"?: SpaceAround & SpaceAround1;
+  "ifStatement.spaceAround"?: SpaceAround & SpaceAround1;
+  "parameters.spaceAround"?: SpaceAround & SpaceAround1;
+  "switchStatement.spaceAround"?: SpaceAround & SpaceAround1;
+  "tupleType.spaceAround"?: SpaceAround & SpaceAround1;
+  "whileStatement.spaceAround"?: SpaceAround & SpaceAround1;
   /**
    * Whether to add a space surrounding the properties of single line object-like nodes.
    */
@@ -315,7 +341,7 @@ export interface Options {
    */
   "setAccessor.spaceBeforeParentheses"?: SetAccessorSpaceBeforeParentheses & SetAccessorSpaceBeforeParentheses1;
   /**
-   * Whether to add a space before the literal in a tagged templte.
+   * Whether to add a space before the literal in a tagged template.
    */
   "taggedTemplate.spaceBeforeLiteral"?: TaggedTemplateSpaceBeforeLiteral & TaggedTemplateSpaceBeforeLiteral1;
   /**
@@ -442,5 +468,10 @@ export interface Options {
   "typeParameters.preferSingleLine"?: PreferSingleLine & PreferSingleLine1;
   "unionAndIntersectionType.preferSingleLine"?: PreferSingleLine & PreferSingleLine1;
   "variableStatement.preferSingleLine"?: PreferSingleLine & PreferSingleLine1;
+  /**
+   * If code should be forced to be on a single line if able.
+   */
+  "exportDeclaration.forceSingleLine"?: ForceSingleLine & ForceSingleLine1;
+  "importDeclaration.forceSingleLine"?: ForceSingleLine & ForceSingleLine1;
   [k: string]: unknown;
 }

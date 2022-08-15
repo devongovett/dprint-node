@@ -22,8 +22,8 @@
     "detect-libc": "^1.0.3"
   },
   "devDependencies": {
-    "@napi-rs/cli": "^2.0.0",
-    "prettier": "^2.3.0",
+    "@napi-rs/cli": "^2.11.4",
+    "prettier": "^2.7.1",
     "tiny-benchy": "^2.1.0"
   }
 }

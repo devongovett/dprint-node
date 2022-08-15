@@ -2,7 +2,6 @@
 #[global_allocator]
 static GLOBAL: jemallocator::Jemalloc = jemallocator::Jemalloc;
 
-use std::collections::HashMap;
 use std::path::Path;
 use dprint_plugin_typescript::{format_text, configuration::{resolve_config, ConfigurationBuilder}};
 use dprint_core::configuration::{ConfigKeyMap, ConfigKeyValue, resolve_global_config, ResolveGlobalConfigOptions};
@@ -46,7 +45,7 @@ fn format(file_name: String, code: String, config: Option<JsObject>) -> Result<S
 
         c.insert(k, v);
       }
-      let res = resolve_config(c, &resolve_global_config(HashMap::new(), &ResolveGlobalConfigOptions::default()).config);
+      let res = resolve_config(c, &resolve_global_config(ConfigKeyMap::new(), &ResolveGlobalConfigOptions::default()).config);
       if !res.diagnostics.is_empty() {
         let message = res.diagnostics.iter().map(|d| d.message.clone()).collect::<Vec<String>>().join("\n  ");
         return Err(napi::Error {
@@ -60,7 +59,7 @@ fn format(file_name: String, code: String, config: Option<JsObject>) -> Result<S
   };
 
   match format_text(&path, &code, &config) {
-    Ok(res) => Ok(res),
+    Ok(res) => Ok(res.unwrap_or(String::new())),
     Err(e) => {
       Err(napi::Error {
         reason: e.to_string(),
