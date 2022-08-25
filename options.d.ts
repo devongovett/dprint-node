@@ -112,7 +112,7 @@ export type SortOrder1 = string;
 export type ForceSingleLine = boolean;
 export type ForceSingleLine1 = true | false;
 
-export interface HttpsPluginsDprintDevDprintDprintPluginTypescript0712SchemaJson {
+export interface Options {
   /**
    * Whether the configuration is not allowed to be overridden or extended.
    */
