@@ -3,9 +3,9 @@
 
 
 "@napi-rs/cli@^2.11.4":
-  version "2.11.4"
-  resolved "https://registry.yarnpkg.com/@napi-rs/cli/-/cli-2.11.4.tgz#28bea72dd6758ce7fc94d515493c5bd1ef00b6ec"
-  integrity sha512-rjU651owB4GJetO3pnu3B8TyVM3Fis3AYb+U16bKxYyykp81S+dJlIgWc8Lc0t55PYbHlBM3hxdgy4pultxMAw==
+  version "2.14.7"
+  resolved "https://registry.yarnpkg.com/@napi-rs/cli/-/cli-2.14.7.tgz#5f998279eba2a69ecc168ee5b9e5b907cb8ea91a"
+  integrity sha512-H+YCgdbBNMWn8c878C3RsRYcMxamWI7rB0H+1TqOy9n6u31isikcRyW1VDyoNHp7ApfmzV0+tpPopVi0W7WHAA==
 
 detect-libc@^1.0.3:
   version "1.0.3"
