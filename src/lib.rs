@@ -75,7 +75,7 @@ fn format(file_name: String, code: String, config: Option<JsObject>) -> Result<S
     };
 
     match format_text(&path, &code, &config) {
-        Ok(res) => Ok(res.unwrap_or(String::new())),
+        Ok(res) => Ok(res.unwrap_or(code)),
         Err(e) => Err(napi::Error::new(
             napi::Status::GenericFailure,
             e.to_string(),
