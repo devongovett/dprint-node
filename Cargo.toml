@@ -21,4 +21,4 @@ dprint-core = "0.62.1"
 jemallocator = { version = "0.3.2", features = ["disable_initial_exec_tls"] }
 
 [build-dependencies]
-napi-build = { version = "1" }
+napi-build = { version = "2" }
