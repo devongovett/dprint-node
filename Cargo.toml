@@ -18,7 +18,7 @@ dprint-plugin-typescript = "0.87.1"
 dprint-core = "0.62.1"
 
 [target.'cfg(target_os = "macos")'.dependencies]
-jemallocator = { version = "0.3.2", features = ["disable_initial_exec_tls"] }
+jemallocator = { version = "0.5.0", features = ["disable_initial_exec_tls"] }
 
 [build-dependencies]
 napi-build = { version = "1" }
